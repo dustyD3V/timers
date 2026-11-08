@@ -8,7 +8,12 @@ timers.forEach(timer => {
             timer.time = Math.floor((now - timer.startTime) / 1000);
 
             saveTimers();
-            render();
+
+            const timeElement = document.getElementById(`timer-${timer.id}`);
+
+            if (timeElement) {
+                timeElement.textContent = formatTime(timer.time);
+            }
         }, 1000);
     }
 });
