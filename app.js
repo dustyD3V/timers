@@ -148,6 +148,7 @@ function startTimer(id) {
 
     timer.running = true;
     timer.startTime = Date.now() - timer.time * 1000;
+    saveTimers();
     intervals[id] = setInterval(() => {
         const now = Date.now();
         timer.time = Math.floor((now - timer.startTime) / 1000);
